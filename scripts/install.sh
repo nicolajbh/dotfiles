@@ -51,5 +51,10 @@ create_symlink "$DOTFILES_DIR/config/aerospace/.aerospace.toml" "$HOME/.aerospac
 # tmux
 create_symlink "$DOTFILES_DIR/tmux/.tmux.conf" "$HOME/.tmux.conf"
 
+# Karabiner
+create_symlink "$DOTFILES_DIR/config/karabiner" "$HOME/.config/karabiner"
+
+# Neovim
+create_symlink "$DOTFILES_DIR/config/nvim" "$HOME/.config/nvim"
 echo -e "${GREEN}✓ Dotfiles installation complete!${NC}"
 echo -e "${YELLOW}You may need to reload your applications to pick up the new configs.${NC}"
