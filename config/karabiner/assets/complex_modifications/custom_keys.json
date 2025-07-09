@@ -1,0 +1,40 @@
+{
+    "title": "Fix US Keyboard §/± to `/~ (for Danish Mac)",
+    "rules": [
+        {
+            "description": "Change § to ` and ± to ~ (like US layout)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "non_us_backslash", // This is the § key on a US keyboard
+                        "modifiers": {
+                            "optional": ["any"]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "grave_accent_and_tilde" // Sends ` (backtick)
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "non_us_backslash", // § key
+                        "modifiers": {
+                            "mandatory": ["shift"], // Shift + §
+                            "optional": ["caps_lock"]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "grave_accent_and_tilde", // Sends ~ (tilde)
+                            "modifiers": ["shift"]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

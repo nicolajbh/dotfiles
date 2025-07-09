@@ -1,0 +1,21 @@
+theme=GruvboxDarkHard
+font-size=19
+
+# Opacity and blur
+background-opacity=0.80
+background-blur=true
+
+# Maximize screen on startup. Maximize not working
+window-width=9999
+window-height=9999
+
+# Left option to alt
+macos-option-as-alt=true
+
+# Remove window decorations
+window-decoration=none
+
+# Cursor
+cursor-style-blink=false
+shell-integration-features=no-cursor
+
