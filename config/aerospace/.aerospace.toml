@@ -169,18 +169,23 @@ automatically-unhide-macos-hidden-apps = false
 
 # Move apps to workspaces
 [[on-window-detected]]
-if.app-id = 'com.mitchellh.ghostty'
-run = 'move-node-to-workspace 1'
-[[on-window-detected]]
 if.app-id = 'com.apple.Safari'
-run = 'move-node-to-workspace 2'
+run = 'move-node-to-workspace 1'
 [[on-window-detected]]
 if.app-id = 'com.brave.Browser'
 run = 'move-node-to-workspace 2'
 [[on-window-detected]]
-if.app-id = 'com.hnc.Discord'
-run = 'move-node-to-workspace 4' 
+if.app-id = 'com.mitchellh.ghostty'
+run = 'move-node-to-workspace 3'
 [[on-window-detected]]
 if.app-id = 'com.apple.Preview'
+run = 'move-node-to-workspace 4'
+[[on-window-detected]]
+if.app-id = 'com.hnc.Discord'
+run = 'move-node-to-workspace 5' 
+[[on-window-detected]]
+if.app-id = 'com.readdle.smartemail-Mac'
 run = 'move-node-to-workspace 5'
-
+[[on-window-detected]]
+if.app-id = 'net.runelite.launcher'
+run = 'move-node-to-workspace 6'
