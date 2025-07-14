@@ -188,4 +188,4 @@ if.app-id = 'com.readdle.smartemail-Mac'
 run = 'move-node-to-workspace 5'
 [[on-window-detected]]
 if.app-id = 'net.runelite.launcher'
-run = 'move-node-to-workspace 6'
+run = [ 'layout floating', 'move-node-to-workspace 6' ]
