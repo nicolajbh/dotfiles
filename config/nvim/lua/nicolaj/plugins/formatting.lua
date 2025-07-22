@@ -23,6 +23,7 @@ return {
                 json = { "prettier" },
                 c = { "clang_format" },
                 cpp = { "clang_format" },
+                go = { "gofumpt", "goimports" },
             },
             format_on_save = {
                 timeout_ms = 3000,
