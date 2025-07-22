@@ -29,6 +29,7 @@ return {
                 "emmet_ls",
                 "stylelint_lsp",
                 "clangd",
+                "gopls",
             },
             automatic_installation = true,
         })
@@ -47,6 +48,11 @@ return {
                 "clang-format", -- C code formatter
                 "cpplint", -- C/C++ linter
                 "codelldb", -- debugger for c
+
+                -- Go tools
+                "gofumpt",
+                "goimports",
+                "golangci-lint",
             },
             auto_update = true,
             run_on_start = true,
