@@ -192,3 +192,8 @@ run = 'move-node-to-workspace 5'
 [[on-window-detected]]
 if.app-id = 'net.runelite.launcher'
 run = [ 'layout floating', 'move-node-to-workspace 6' ]
+
+# Finder floating window
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = [ 'layout floating' ]
