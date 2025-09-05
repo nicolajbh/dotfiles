@@ -1,2 +1,1 @@
-require("nicolaj.core")
-require("nicolaj.lazy")
+require("config.lazy")
