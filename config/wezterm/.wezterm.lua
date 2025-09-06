@@ -148,7 +148,6 @@ if wezterm.target_triple:find("windows") then
 	config.default_prog = { "pwsh.exe", "-NoLogo" }
 	config.font_size = 14.0
 elseif wezterm.target_triple:find("darwin") then
-	config.default_prog = { "/opt/homebrew/bin/fish" }
 	config.macos_window_background_blur = 10
 	config.font_size = 18.0
 end
