@@ -24,10 +24,11 @@ end
 config.color_scheme = "Kanagawa (Gogh)"
 
 config.font = wezterm.font("JetBrainsMono Nerd Font")
-config.font_size = 19
+config.font_size = 14.0 
 
 -- tab bars
 config.enable_tab_bar = true
+config.hide_tab_bar_if_only_one_tab = true
 config.tab_bar_at_bottom = true
 config.use_fancy_tab_bar = false
 config.tab_max_width = 32
@@ -90,7 +91,6 @@ config.key_tables = {
 config.window_decorations = "RESIZE"
 
 config.window_background_opacity = 0.8
-config.macos_window_background_blur = 10
 config.inactive_pane_hsb = {
     saturation = 0.5,
     brightness = 0.5,
@@ -102,5 +102,12 @@ config.window_padding = {
     bottom = 0,
 }
 
+-- set shell
+if wezterm.target_triple:find("windows") then
+  config.default_prog = { 'pwsh.exe', '-NoLogo' }
+elseif wezterm.target_triple:find("darwin") then
+  config.default_prog = { '/opt/homebrew/bin/fish' }
+  config.macos_window_background_blur = 10
+end
 -- and finally, return the configuration to wezterm
 return config
