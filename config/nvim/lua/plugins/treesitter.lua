@@ -8,6 +8,7 @@ return {
 		"rust",
 		"c",
 		"cpp",
+		"c_sharp",
 		"lua",
 		"python",
 		"html",
@@ -19,9 +20,6 @@ return {
 		"json",
 		"fish",
 		"nu",
-		"latex",
-		"gdscript",
-		"gdshader",
 	},
 	highlight = {
 		enable = true,
