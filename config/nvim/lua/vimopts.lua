@@ -18,9 +18,6 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "<C-b>", "<C-b>zz")
 vim.keymap.set("n", "<C-f>", "<C-f>zz")
 
--- Set Python path
-vim.g.python3_host_prog = "/usr/local/bin/python3"
-
 opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 
 -- Change working directory
