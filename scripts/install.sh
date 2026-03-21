@@ -4,6 +4,10 @@ set -e
 # 1. Fedora Package Installation
 if [ -f /etc/fedora-release ]; then
   echo "Fedora detected. Installing packages..."
+
+# Enable COPR for starship before installing
+  sudo dnf copr enable -y atim/starship
+
   sudo dnf install -y tmux neovim zoxide starship util-linux-user uv fish
   sudo dnf install -y dotnet-sdk-8.0
   
