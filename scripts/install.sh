@@ -1,60 +1,47 @@
 #!/bin/bash
+set -e # Exit on error
 
-# Dotfiles installation script
+# 1. Fedora Package Installation
+if [ -f /etc/fedora-release ]; then
+  echo "Fedora detected. Installing packages..."
+  sudo dnf install -y tmux neovim zoxide starship util-linux-user uv
+  sudo dnf install -y dotnet-sdk-8.0
+  
+  if ! command -v qmk &> /dev/null; then
+    echo "Installing QMK CLI..."
+    uv tool install --with pip qmk
+  fi
+fi 
 
-set -e
-
-# Colors for output
-RED='\033[0;31m'
+# 2. Colors and Paths
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
-NC='\033[0m' # No Color
-
-# Get the directory where this script is located
+NC='\033[0m'
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
-echo -e "${GREEN}Installing dotfiles from $DOTFILES_DIR${NC}"
-
-# Function to create symlink with backup
+# 3. Symlink Function
 create_symlink() {
     local source="$1"
     local target="$2"
-    
-    # Create target directory if it doesn't exist
     mkdir -p "$(dirname "$target")"
-    
-    # If target exists and is not a symlink, back it up
     if [[ -e "$target" && ! -L "$target" ]]; then
-        echo -e "${YELLOW}Backing up existing $target to $target.backup${NC}"
         mv "$target" "$target.backup"
     fi
-    
-    # Remove existing symlink if it exists
-    if [[ -L "$target" ]]; then
-        rm "$target"
-    fi
-    
-    # Create the symlink
-    ln -s "$source" "$target"
+    ln -sf "$source" "$target"
     echo -e "${GREEN}✓ Linked $source -> $target${NC}"
 }
 
-# Install configs
 echo -e "${GREEN}Setting up configuration files...${NC}"
 
-# Ghostty
+# Cross-platform configs
+create_symlink "$DOTFILES_DIR/tmux/.tmux.conf" "$HOME/.tmux.conf"
+create_symlink "$DOTFILES_DIR/config/nvim" "$HOME/.config/nvim"
 create_symlink "$DOTFILES_DIR/config/ghostty/config" "$HOME/.config/ghostty/config"
 
-# AeroSpace
-create_symlink "$DOTFILES_DIR/config/aerospace/.aerospace.toml" "$HOME/.aerospace.toml"
+# macOS only configs
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    create_symlink "$DOTFILES_DIR/config/aerospace/.aerospace.toml" "$HOME/.aerospace.toml"
+    create_symlink "$DOTFILES_DIR/config/karabiner" "$HOME/.config/karabiner"
+fi
 
-# tmux
-create_symlink "$DOTFILES_DIR/tmux/.tmux.conf" "$HOME/.tmux.conf"
-
-# Karabiner
-create_symlink "$DOTFILES_DIR/config/karabiner" "$HOME/.config/karabiner"
-
-# Neovim
-create_symlink "$DOTFILES_DIR/config/nvim" "$HOME/.config/nvim"
-echo -e "${GREEN}✓ Dotfiles installation complete!${NC}"
-echo -e "${YELLOW}You may need to reload your applications to pick up the new configs.${NC}"
+echo -e "${GREEN}✓ Dotfiles installation complete!${NC}"cho -e "${YELLOW}You may need to reload your applications to pick up the new configs.${NC}"

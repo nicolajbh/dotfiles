@@ -8,6 +8,7 @@ return {
 				csharp = { "csharpier" },
 				c = { "clang_format" },
 				json = { "jq" },
+				sql = { "sqruff" },
 			},
 			formatters = {
 				jq = {

@@ -113,6 +113,13 @@ config.keys = {
 		mods = "LEADER",
 		action = wezterm.action.ActivateCopyMode,
 	},
+
+	-- Launcher
+	{
+		key = "l",
+		mods = "ALT|CTRL",
+		action = wezterm.action.ShowLauncher,
+	},
 }
 
 config.key_tables = {
@@ -145,8 +152,12 @@ config.window_padding = {
 
 -- Platform-specific settings
 if wezterm.target_triple:find("windows") then
-	config.default_prog = { "pwsh.exe", "-NoLogo" }
+	config.default_prog = { "wsl.exe", "-d", "FedoraLinux-42", "--cd", "~" }
 	config.font_size = 14.0
+	config.launch_menu = {
+		{ label = "Fedora", args = { "wsl.exe", "-d", "FedoraLinux-42", "--cd", "~" } },
+		{ label = "PowerShell", args = { "pwsh.exe" } },
+	}
 elseif wezterm.target_triple:find("darwin") then
 	config.macos_window_background_blur = 10
 	config.font_size = 18.0
