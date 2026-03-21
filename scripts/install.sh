@@ -5,10 +5,11 @@ set -e
 if [ -f /etc/fedora-release ]; then
   echo "Fedora detected. Installing packages..."
 
-# Enable COPR for starship before installing
+# Enable COPR for starship & yazi before installing
   sudo dnf copr enable -y atim/starship
+  sudo dnf copr enable lihaohong/yazi
 
-  sudo dnf install -y tmux neovim zoxide starship util-linux-user uv fish
+  sudo dnf install -y tmux neovim zoxide starship util-linux-user uv fish yazi
   sudo dnf install -y dotnet-sdk-8.0
   
   # Set Fish as the default shell
