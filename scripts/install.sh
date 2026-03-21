@@ -43,4 +43,4 @@ if status is-interactive
 end
 EOF
 
-echo "Setup complete! Remember to manually copy .wezterm.lua to your Windows Home."cho -e "${YELLOW}Note: Your WezTerm config should be placed in your Windows home directory for best performance.${NC}"cho -e "${YELLOW}Note: Your WezTerm config should be placed in your Windows home directory for best performance.${NC}"cho -e "${GREEN}✓ Dotfiles installation complete!${NC}"cho -e "${YELLOW}You may need to reload your applications to pick up the new configs.${NC}"
+echo "Setup complete!" 
