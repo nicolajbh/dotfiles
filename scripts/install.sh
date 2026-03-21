@@ -57,4 +57,4 @@ end
 EOF
 
 echo -e "${GREEN}✓ Dotfiles installation complete!${NC}"
-echo -e "${YELLOW}Note: Your WezTerm config should be placed in your Windows home directory for best performance.${NC}"cho -e "${GREEN}✓ Dotfiles installation complete!${NC}"cho -e "${YELLOW}You may need to reload your applications to pick up the new configs.${NC}"
+echo -e "${YELLOW}Note: Your WezTerm config should be placed in your Windows home directory for best performance.${NC}"cho -e "${YELLOW}Note: Your WezTerm config should be placed in your Windows home directory for best performance.${NC}"cho -e "${GREEN}✓ Dotfiles installation complete!${NC}"cho -e "${YELLOW}You may need to reload your applications to pick up the new configs.${NC}"
