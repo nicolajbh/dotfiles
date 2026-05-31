@@ -56,3 +56,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float) -- see error
 vim.keymap.set("n", "gd", vim.lsp.buf.definition)
+
+-- ripgrep windows
+vim.opt.grepprg = "rg --vimgrep --smart-case --hidden"
+vim.opt.grepformat = "%f:%l:%c:%m"
