@@ -34,11 +34,13 @@ config.use_fancy_tab_bar = false
 config.tab_max_width = 32
 
 -- Key configurations
-config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
+-- LEADER is CTRL+A.
+-- Laptop: CapsLock+A | Cheapino: Hold D + Tap A
+config.leader = { key = " ", mods = "CTRL", timeout_milliseconds = 1000 }
 
 -- Split pane and navigation
 config.keys = {
-	-- Split panes (your existing setup)
+	-- Split panes
 	{
 		key = "s",
 		mods = "LEADER",
@@ -49,13 +51,14 @@ config.keys = {
 		mods = "LEADER",
 		action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }),
 	},
+	-- Send literal CTRL+A to the terminal if needed
 	{
 		key = "a",
 		mods = "LEADER|CTRL",
 		action = wezterm.action.SendKey({ key = "a", mods = "CTRL" }),
 	},
 
-	-- Pane navigation (your existing setup)
+	-- Pane navigation
 	move_pane("j", "Down"),
 	move_pane("k", "Up"),
 	move_pane("l", "Right"),
@@ -79,7 +82,7 @@ config.keys = {
 		}),
 	},
 
-	-- Tab management (new additions)
+	-- Tab management
 	{
 		key = "t",
 		mods = "LEADER",
@@ -96,28 +99,24 @@ config.keys = {
 		action = wezterm.action.ActivateTabRelative(-1),
 	},
 
-	-- Quick tab switching (1-9)
-	{ key = "1", mods = "LEADER", action = wezterm.action.ActivateTab(0) },
-	{ key = "2", mods = "LEADER", action = wezterm.action.ActivateTab(1) },
-	{ key = "3", mods = "LEADER", action = wezterm.action.ActivateTab(2) },
-	{ key = "4", mods = "LEADER", action = wezterm.action.ActivateTab(3) },
-	{ key = "5", mods = "LEADER", action = wezterm.action.ActivateTab(4) },
-	{ key = "6", mods = "LEADER", action = wezterm.action.ActivateTab(5) },
-	{ key = "7", mods = "LEADER", action = wezterm.action.ActivateTab(6) },
-	{ key = "8", mods = "LEADER", action = wezterm.action.ActivateTab(7) },
-	{ key = "9", mods = "LEADER", action = wezterm.action.ActivateTab(8) },
-
-	-- Copy mode
+	-- Visual Tab Navigator (Replaces 1-9 number keys)
 	{
-		key = "[",
+		key = "Tab",
+		mods = "LEADER",
+		action = wezterm.action.ShowTabNavigator,
+	},
+
+	-- Copy mode (Moved to base layer 'c')
+	{
+		key = "c",
 		mods = "LEADER",
 		action = wezterm.action.ActivateCopyMode,
 	},
 
-	-- Launcher
+	-- Launcher (Moved to Space)
 	{
-		key = "l",
-		mods = "ALT|CTRL",
+		key = " ",
+		mods = "LEADER",
 		action = wezterm.action.ShowLauncher,
 	},
 }
