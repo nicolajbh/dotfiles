@@ -30,11 +30,6 @@ create_symlink() {
     echo -e "✓ Linked $source -> $target"
 }
 
-# 4. Apply Linux-side Configs ONLY
-create_symlink "$DOTFILES_DIR/tmux/.tmux.conf" "$HOME/.tmux.conf"
-create_symlink "$DOTFILES_DIR/config/nvim" "$HOME/.config/nvim"
-create_symlink "$DOTFILES_DIR/config/yazi" "$HOME/.config/yazi"
-
 # 5. Fish Initialization
 mkdir -p "$HOME/.config/fish"
 cat << 'EOF' > "$HOME/.config/fish/config.fish"
