@@ -20,6 +20,7 @@ return {
 		"json",
 		"fish",
 		"nu",
+		"razor",
 	},
 	highlight = {
 		enable = true,
